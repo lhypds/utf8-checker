@@ -7,7 +7,7 @@ def select_folder_with_fzf():
     try:
         # Use shell=True to run the command in a shell context and exclude .venv
         result = subprocess.run(
-            'find . -type d -not -path "./.venv*" "./.git*" | fzf',
+            'find . -maxdepth 1 -type d -not -path "./.venv*" -not -path "./.git*" | fzf',
             text=True,
             shell=True,
             check=True,
